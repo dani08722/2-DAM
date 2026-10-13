@@ -1,4 +1,4 @@
-# Ejercicio 3: calcular el precio final de un producto con IVA del 21 %.
+# Ejercicio 3: Mostrar el precio final (con IVA) de un producto con un valor de 100 euros, suponiendo que el IVA es el 21%.
 
 precio = 100.0
 iva = 0.21

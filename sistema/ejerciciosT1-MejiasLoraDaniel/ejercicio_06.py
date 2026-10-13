@@ -1,5 +1,4 @@
-# Ejercicio 6: indicar en qué intervalo está el número.
-
+# Ejercicio 6: Añadir al ejercicio anterior que si está entre 11 y 20, muestre otro mensaje diferente y si está entre 21 y 30 otro mensaje.
 numero = float(input("Introduce un número: "))
 
 if 0 <= numero <= 10:

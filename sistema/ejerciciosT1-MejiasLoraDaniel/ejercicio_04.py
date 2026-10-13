@@ -1,4 +1,4 @@
-# Ejercicio 4: indicar cuál de dos números es mayor.
+# Ejercicio 4: De dos números, saber cuál es el mayor.
 
 numero1 = float(input("Introduce el primer número: "))
 numero2 = float(input("Introduce el segundo número: "))

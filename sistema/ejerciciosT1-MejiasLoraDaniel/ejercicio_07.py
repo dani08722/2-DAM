@@ -1,4 +1,4 @@
-# Ejercicio 7: mostrar los números del 1 al 100 con un bucle while.
+# Ejercicio 7: Mostrar con un bucle while los números del 1 al 100.
 
 numero = 1
 

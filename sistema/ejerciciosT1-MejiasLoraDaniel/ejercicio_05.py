@@ -1,4 +1,4 @@
-# Ejercicio 5: comprobar si un número está entre 0 y 10, inclusive.
+# Ejercicio 5: Crea una variable numérica y si está entre 0 y 10, mostrar un mensaje indicándolo.
 
 numero = float(input("Introduce un número: "))
 

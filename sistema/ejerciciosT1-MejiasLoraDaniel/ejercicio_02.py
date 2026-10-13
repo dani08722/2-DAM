@@ -1,4 +1,4 @@
-# Ejercicio 2: sumar dos variables numéricas.
+# Ejercicio 2: Crear dos variables numéricas, sumarlas y mostrar el resultado
 
 numero1 = 7
 numero2 = 5
