@@ -1,2 +1,8 @@
-# Ejercicio 10: Realiza la misma operación del ejercicio anterior pero con números.
+numeros = []
+numero = input("Introduce un número entero (Enter para terminar): ")
 
+while numero != "":
+    numeros.append(int(numero))
+    numero = input("Introduce otro número entero (Enter para terminar): ")
+
+print("Números introducidos:", numeros)
