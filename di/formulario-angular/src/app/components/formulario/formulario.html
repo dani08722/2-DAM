@@ -1,0 +1,49 @@
+<div class="form-field">
+    <label for="fieldText" class="form-label">Nombre</label>
+    <input type="text" class="form-control" id="fieldText" placeholder="Daniel" [(ngModel)]="nombreForm">
+
+    <label for="fieldText" class="form-label">Apellidos</label>
+    <input type="text" class="form-control" id="fieldText" placeholder="Mejías Lora" [(ngModel)]="apellidosForm">
+
+    <label for="fieldText" class="form-label">NIF</label>
+    <input type="text" class="form-control" id="fieldText" placeholder="12345678A" [(ngModel)]="nifForm">
+
+    <label for="fieldText" class="form-label">Email address</label>
+    <input type="email" class="form-control" id="fieldText" placeholder="name@example.com" [(ngModel)]="emailForm">
+
+    <label for="fieldText" class="form-label">Teléfono</label>
+    <input type="text" class="form-control" id="fieldText" placeholder="123456789" [(ngModel)]="telefonoForm">
+
+    <label for="fieldText" class="form-label">Sexo</label>
+    <select class="form-control" id="fieldText" [(ngModel)]="sexoForm">
+        <option value="Hombre">Hombre</option>
+        <option value="Mujer">Mujer</option>
+        <option value="Otro">Otro</option>
+    </select>
+
+    <label for="fieldText" class="form-label">¿Cómo conociste la página?</label>
+    <select class="form-control" id="fieldText" [(ngModel)]="conocidoPaginaForm">
+        <option value="Buscando en Google">Buscando en Google</option>
+        <option value="Recomendación de un amigo">Recomendación de un amigo</option>
+        <option value="Anuncio en redes sociales">Anuncio en redes sociales</option>
+    </select>
+
+    <label for="fieldText" class="form-label">Contraseña</label>
+    <input type="password" class="form-control" id="fieldText" placeholder="Contraseña" [(ngModel)]="contraseniaForm">
+
+    <label for="fieldText" class="form-label">Confirmar contraseña</label>
+    <input type="password" class="form-control" id="fieldText" placeholder="Confirmar contraseña" [(ngModel)]="confirmarContraseniaForm">
+</div>
+<div class="form-check mb-3">
+  <input class="form-check-input" type="checkbox" value="" id="terminos" required>
+  <label class="form-check-label" for="terminos">
+    Acepto los <a href="#" target="_blank">términos y condiciones</a> de uso.
+  </label>
+  <div class="invalid-feedback">
+    Debes aceptar los términos y condiciones antes de enviar el formulario.
+  </div>
+</div>
+
+<button type="button" (click)="sendForm()" class="theme-primary btn-solid btn-styled">
+    Enviar formulario
+</button>
