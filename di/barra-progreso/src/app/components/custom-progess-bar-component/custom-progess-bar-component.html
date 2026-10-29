@@ -1,0 +1,9 @@
+<div class="progress" role="progressbar" [attr.aria-valuenow]="percentage()" aria-valuemin="0" aria-valuemax="100">
+	<div
+		class="progress-bar"
+		[class]="'progress-bar bg-' + color()"
+		[style.width.%]="percentage()"
+	>
+		{{ percentage() }}%
+	</div>
+</div>
