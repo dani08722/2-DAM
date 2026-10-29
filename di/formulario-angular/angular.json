@@ -3,7 +3,11 @@
   "version": 1,
   "cli": {
     "packageManager": "npm",
+<<<<<<< HEAD
     "analytics": "87362db7-8aac-448b-a205-abcf48bc164c"
+=======
+    "analytics": "69442741-6853-424c-b321-e0fe36aa5447"
+>>>>>>> 489f18378362a303a27d9043d4d0df54611ad4ca
   },
   "newProjectRoot": "projects",
   "projects": {
@@ -26,6 +30,7 @@
               }
             ],
             "styles": ["node_modules/bootstrap/dist/css/bootstrap.min.css", "src/styles.css"],
+<<<<<<< HEAD
             "server": "src/main.server.ts",
             "outputMode": "server",
             "security": {
@@ -34,6 +39,8 @@
             "ssr": {
               "entry": "src/server.ts"
             },
+=======
+>>>>>>> 489f18378362a303a27d9043d4d0df54611ad4ca
             "polyfills": ["@angular/localize/init"]
           },
           "configurations": {
