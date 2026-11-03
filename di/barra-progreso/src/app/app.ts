@@ -3,7 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import { CustomProgressBarComponent } from './components/custom-progess-bar-component/custom-progess-bar-component';
 
 @Component({
-  imports: [CustomProgressBarComponent],
+  imports: [CustomProgressBarComponent, RouterOutlet],
   selector: 'app-root',
   styleUrl: './app.css',
   templateUrl: './app.html',

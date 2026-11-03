@@ -1,0 +1,10 @@
+<h1>Personajes</h1>
+<a href="/episode-list">Episodios</a>
+<div class="row">
+    @for(characterl of characterList(); track characterl.id) {
+    <div class="col-md-3">
+                <app-rickymorty-item-component [character]="characterl"
+            (characterClicked)="openPokemonModal(+$event)"></app-rickymorty-item-component>
+    </div>
+    }
+</div>
