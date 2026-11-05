@@ -1,0 +1,10 @@
+<h1>Personajes de Star Wars</h1>
+
+<div class="row">
+    @for(characterl of peopleList(); track characterl.id) {
+    <div class="col-md-3">
+        <app-people-item-component [character]="characterl"
+            (characterClicked)="openCharacterModal($event)"></app-people-item-component>
+    </div>
+    }
+</div>

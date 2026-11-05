@@ -1,0 +1,24 @@
+.modal-header {
+  border-bottom: 1px solid #e8e2d6;
+  background: #f7f4ec;
+}
+
+.modal-title {
+  color: #202a38;
+  font-weight: 700;
+}
+
+.modal-body {
+  padding: 1.5rem;
+  color: #454b54;
+}
+
+.modal-body p {
+  margin: 0;
+  padding: 0.65rem 0;
+  border-bottom: 1px solid #f0ede6;
+}
+
+.modal-footer {
+  border-top: 1px solid #e8e2d6;
+}

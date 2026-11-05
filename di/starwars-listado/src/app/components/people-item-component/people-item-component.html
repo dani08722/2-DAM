@@ -1,0 +1,8 @@
+<section class="card" style="max-width: 320px">
+        <div class="card-body">
+        <h4 class="card-title">{{character()?.name}}</h4>
+        <p class="card-text">ID: {{getCharacterId()}}</p>
+        <!-- STEP7: defino un evento clic sobre el botón que quiero que lance un evento de salida, es decir, output al componente padre para que este realice la acción que en este caso sería abrir un modal con la información del Pokémon sobre el que he hecho click-->
+        <button type="button" class="btn-solid theme-primary" (click)="emitCharacterClicked()">View detail</button>
+    </div>
+</section>
