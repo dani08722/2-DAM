@@ -10,8 +10,8 @@
 # explicar el borrado podemos usar el buscar el elemento a borrar. 
 
 numeros = [0,1,2,3,4,5,6,7,8,9,10]
-opcion=1000
-while opcion!=0:
+opcion=int(1000)
+while opcion!=int(0):
     print("Pulsa [0] para salir")
     print("Pulsa [1] para insertar en una posición concreta")
     print("Pulsa [2] para insertar al final de la lista")
@@ -22,30 +22,41 @@ while opcion!=0:
     print("Pulsa [7] para eliminar toda la lista")
     print("Pulsa [8] para encontrar el índice de un número")
     print("Pulsa [9] para ver si un número esta en la lista")
-    int(opcion=input("Selecciona una opción: "))
+    opcion=int(input("Selecciona una opción: "))
 
     match opcion:
-        case 0:
+        case int(0):
             print("Saliendo del programa...")
             break
-        case 1:
-            index=input("Introduzca la posición de la lista que quieres insertar el número")
-            numero=input("Introduce el número que desea insertar")
-            numeros[numeros.insert(index,numero)]
-        case 2:
-            numero=input("Introduce el número que desea insertar")
+        case int(1):
+            index=int(input("Introduzca la posición de la lista que quieres insertar el número: "))
+            numero=int(input("Introduce el número que desea insertar: "))
+            numeros.insert(index,numero)
+        case int(2):
+            numero=int(input("Introduce el número que desea insertar: "))
             numeros.append(numero)
-        case 3:
-            index=input("Introduce la posición de la lista que quieres buscar")
+        case int(3):
+            index=int(input("Introduce la posición de la lista que quieres buscar: "))
             print(numeros[index])
-        case 4:
+        case int(4):
             print(numeros)
-        case 5:
-
-        case 6:
-
-        case 7:
-
-        case 8:
-
-        case 9:
+        case int(5):
+            numero=int(input("Introduce el número deseado a eliminar: "))
+            numeros.remove(numero)
+        case int(6):
+            indice=int(input("Introduce el índice del número a eliminar: "))
+            del numeros[indice]
+        case int(7):
+            numeros.clear()
+        case int(8):
+            numero=int(input("Introduce el número a encontrar el índice: "))
+            if numero in numeros:
+                print("El número está en el indice: ",numeros.index(numero))
+            else:
+                print("El número no está en la lista")
+        case int(9):
+            numero=int(input("Introduce un número para saber si está en la lista: "))
+            if numero in numeros:
+                print("El número: ",numero ," está en la lista")
+            else:
+                print("No está en la lista")

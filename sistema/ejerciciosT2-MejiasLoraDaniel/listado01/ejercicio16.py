@@ -1,5 +1,5 @@
 import random
-opcion="100"
+opcion=int(100)
 
 tempMin=float(input("Introduzca el minimo: "))
 tempMax=float(input("Introduzca el máximo: "))
@@ -12,7 +12,7 @@ for i in range(diasGenerar):
     aleatorio= round(random.uniform(tempMin,tempMax),2)
     listaTemperaturas.append(aleatorio)
 
-while opcion!="0":
+while opcion!=int(0):
 
     print("\n\n[0] Salir del programa")
     print("[1] Mostrar todas las temperaturas")
@@ -22,16 +22,15 @@ while opcion!="0":
     print("[5] Mostrar cuántos días tuvieron temperaturas por encima de la media")
     print("[6] Crear una nueva lista solo con las temperaturas superiores a la media\n")
 
-    opcion=input("Introduzca la opcion: ")
+    opcion=int(input("Introduzca la opcion: "))
     match opcion:
-        case "0":
+        case int(0):
             print("\n\nSaliendo del programa:")
-            break
 
-        case "1":
+        case int(1):
             print("\n\n",listaTemperaturas)
 
-        case "2":
+        case int(2):
             contador=0
             suma=0
 
@@ -44,19 +43,19 @@ while opcion!="0":
 
             suma=sum(listaTemperaturas)
             media=suma/len(listaTemperaturas)
-            print(media)
+            print(round(media,2))
 
-        case "3":
+        case int(3):
             minimaTemp=min(listaTemperaturas)
             maximaTemp=max(listaTemperaturas)
             print("\n\nDía: ",listaTemperaturas.index(minimaTemp)+1," ",minimaTemp)
             print("Día: ",listaTemperaturas.index(maximaTemp)+1," ",maximaTemp)
 
-        case "4":
+        case int(4):
             listaTemperaturas.sort(reverse=True)
             print("\n\nLista ordenada!!")
 
-        case "5":
+        case int(5):
             contador=0
             media=0
 
@@ -73,7 +72,7 @@ while opcion!="0":
 
             print("\n\n",contador, " Días tuvieron temperatura mayor a la media")
 
-        case "6":
+        case int(6):
             suma=sum(listaTemperaturas)
             media=suma/len(listaTemperaturas)
             listaTemperaturasMayorMedia=[]
