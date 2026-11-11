@@ -1,0 +1,74 @@
+{
+  "hash": "3421ed75",
+  "configHash": "283288a0",
+  "lockfileHash": "732bbfdf",
+  "browserHash": "c10aff79",
+  "optimized": {
+    "@angular/core": {
+      "src": "../../../../../../node_modules/@angular/core/fesm2022/core.mjs",
+      "file": "@angular_core.js",
+      "fileHash": "b2afb349",
+      "needsInterop": false
+    },
+    "@angular/forms": {
+      "src": "../../../../../../node_modules/@angular/forms/fesm2022/forms.mjs",
+      "file": "@angular_forms.js",
+      "fileHash": "ad322e8f",
+      "needsInterop": false
+    },
+    "@angular/localize/init": {
+      "src": "../../../../../../node_modules/@angular/localize/fesm2022/init.mjs",
+      "file": "@angular_localize_init.js",
+      "fileHash": "2f86db58",
+      "needsInterop": false
+    },
+    "@angular/platform-browser": {
+      "src": "../../../../../../node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs",
+      "file": "@angular_platform-browser.js",
+      "fileHash": "a30d4196",
+      "needsInterop": false
+    },
+    "@angular/router": {
+      "src": "../../../../../../node_modules/@angular/router/fesm2022/router.mjs",
+      "file": "@angular_router.js",
+      "fileHash": "9948dfff",
+      "needsInterop": false
+    },
+    "@ng-bootstrap/ng-bootstrap": {
+      "src": "../../../../../../node_modules/@ng-bootstrap/ng-bootstrap/fesm2022/ng-bootstrap.mjs",
+      "file": "@ng-bootstrap_ng-bootstrap.js",
+      "fileHash": "15e11ea9",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "_common_module-chunk-CfzHg-Gp": {
+      "file": "_common_module-chunk-CfzHg-Gp.js",
+      "isDynamicEntry": false
+    },
+    "common-CGtVB8pG": {
+      "file": "common-CGtVB8pG.js",
+      "isDynamicEntry": false
+    },
+    "core-DwcU5Din": {
+      "file": "core-DwcU5Din.js",
+      "isDynamicEntry": false
+    },
+    "createObject-DygqgRkB": {
+      "file": "createObject-DygqgRkB.js",
+      "isDynamicEntry": false
+    },
+    "forms-CIoqBr1n": {
+      "file": "forms-CIoqBr1n.js",
+      "isDynamicEntry": false
+    },
+    "platform-browser-97azkfLU": {
+      "file": "platform-browser-97azkfLU.js",
+      "isDynamicEntry": false
+    },
+    "tap-Df-pQC9T": {
+      "file": "tap-Df-pQC9T.js",
+      "isDynamicEntry": false
+    }
+  }
+}
