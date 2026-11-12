@@ -1,68 +1,179 @@
-<form [formGroup]="registerForm" class="row">
-    <h2>Datos Personales</h2>
-    <div class="col-auto">
-        <label for="first-name" class="form-label">First Name <span class="text-danger">*</span> </label>
-        <input id="first-name" type="text" formControlName="nombre" class="form-control"
-            [class.is-invalid]="isInvalidField('nombre')" />
-        @if(isInvalidField('nombre')) {
-        <div class="invalid-feedback">
-            Min 3 characters
-        </div>
-        }
-    </div>
-    <div class="col-auto">
-        <label for="last-name" class="form-label">Last Name <span class="text-danger">*</span></label>
-        <input id="last-name" type="text" formControlName="apellidos" class="form-control"
-            [class.is-invalid]="isInvalidField('apellidos')" />
-        @if(isInvalidField('apellidos')) {
-        <div class="invalid-feedback">
-            Please choose a last name.
-        </div>
-        }
-    </div>
-    <div class="col-auto">
-        <label for="dni-nie" class="form-label">DNI/NIE <span class="text-danger">*</span></label>
-        <input id="dni-nie" type="text" formControlName="dniNIE" class="form-control"
-            [class.is-invalid]="isInvalidField('dniNIE')" />
-        @if(isInvalidField('dniNIE')) {
-        <div class="invalid-feedback">
-            Please enter a valid DNI/NIE.
-        </div>
-        }
-    </div>
-    <div class="col-auto">
-        <label for="telefono" class="form-label">Telefono<span class="text-danger">*</span></label>
-        <input id="telefono" type="text" formControlName="telefono" class="form-control"
-            [class.is-invalid]="isInvalidField('telefono')" />
-        @if(isInvalidField('telefono')) {
-        <div class="invalid-feedback">
-            Please enter a valid phone number.
-        </div>
-        }
-    </div>
-    <h2>Datos de la cuenta</h2>
-    <div class="col-auto">
-        <label for="nombreU" class="form-label">Nombre de usuario <span class="text-danger">*</span></label>
-        <input id="nombreU" type="text" formControlName="nombreUsuario" class="form-control"
-            [class.is-invalid]="isInvalidField('nombreUsuario')" />
-        @if(isInvalidField('nombreUsuario')) {
-        <div class="invalid-feedback">
-            Please enter a valid username.
-        </div>
-        }
-    </div>
-    <div class="col-auto">
-        <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
-        <input id="email" type="email" formControlName="email" class="form-control"
-            [class.is-invalid]="isInvalidField('email')" />
-        @if(isInvalidField('email')) {
-        <div class="invalid-feedback">
-            Please enter a valid email address.
-        </div>
-        }
-    </div>
-    
-    <div class="col-auto">
-        <button type="submit" class="btn btn-primary mb-3">Confirm identity</button>
-    </div>
+<form [formGroup]="registerForm" class="row g-3" novalidate>
+  <h2 class="col-12">Datos personales</h2>
+
+  <div class="col-md-6">
+    <label for="first-name" class="form-label">Nombre <span class="text-danger">*</span></label>
+    <input
+      id="first-name"
+      type="text"
+      formControlName="nombre"
+      class="form-control"
+      [class.is-invalid]="isInvalidField('nombre')"
+      autocomplete="given-name"
+      required
+    />
+    @if (isInvalidField('nombre')) {
+      <div class="invalid-feedback">Introduce un nombre de entre 2 y 30 letras.</div>
+    }
+  </div>
+
+  <div class="col-md-6">
+    <label for="last-name" class="form-label">Apellidos <span class="text-danger">*</span></label>
+    <input
+      id="last-name"
+      type="text"
+      formControlName="apellidos"
+      class="form-control"
+      [class.is-invalid]="isInvalidField('apellidos')"
+      autocomplete="family-name"
+      required
+    />
+    @if (isInvalidField('apellidos')) {
+      <div class="invalid-feedback">Introduce unos apellidos de entre 2 y 50 letras.</div>
+    }
+  </div>
+
+  <div class="col-md-6">
+    <label for="dni-nie" class="form-label">DNI/NIE <span class="text-danger">*</span></label>
+    <input
+      id="dni-nie"
+      type="text"
+      formControlName="dniNIE"
+      class="form-control"
+      [class.is-invalid]="isInvalidField('dniNIE')"
+      autocomplete="off"
+      required
+    />
+    @if (isInvalidField('dniNIE')) {
+      <div class="invalid-feedback">Introduce un DNI o NIE válido.</div>
+    }
+  </div>
+
+  <div class="col-md-6">
+    <label for="telefono" class="form-label">Teléfono <span class="text-danger">*</span></label>
+    <input
+      id="telefono"
+      type="tel"
+      formControlName="telefono"
+      class="form-control"
+      [class.is-invalid]="isInvalidField('telefono')"
+      autocomplete="tel"
+      required
+    />
+    @if (isInvalidField('telefono')) {
+      <div class="invalid-feedback">Introduce un teléfono móvil español válido.</div>
+    }
+  </div>
+
+  <h2 class="col-12 mt-4">Datos de la cuenta</h2>
+
+  <div class="col-md-6">
+    <label for="nombreU" class="form-label">Nombre de usuario <span class="text-danger">*</span></label>
+    <input
+      id="nombreU"
+      type="text"
+      formControlName="nombreUsuario"
+      class="form-control"
+      [class.is-invalid]="isInvalidField('nombreUsuario')"
+      autocomplete="username"
+      required
+    />
+    @if (isInvalidField('nombreUsuario')) {
+      <div class="invalid-feedback">Debe tener entre 4 y 15 caracteres, empezar por una letra y usar solo letras, números o guion bajo.</div>
+    }
+  </div>
+
+  <div class="col-md-6">
+    <label for="email" class="form-label">Correo electrónico <span class="text-danger">*</span></label>
+    <input
+      id="email"
+      type="email"
+      formControlName="email"
+      class="form-control"
+      [class.is-invalid]="isInvalidField('email')"
+      autocomplete="email"
+      required
+    />
+    @if (isInvalidField('email')) {
+      <div class="invalid-feedback">Introduce una dirección de correo válida.</div>
+    }
+  </div>
+
+  <div class="col-md-6">
+    <label for="password" class="form-label">Contraseña <span class="text-danger">*</span></label>
+    <input
+      id="password"
+      type="password"
+      formControlName="password"
+      class="form-control"
+      [class.is-invalid]="isInvalidField('password')"
+      autocomplete="new-password"
+      required
+    />
+    @if (isInvalidField('password')) {
+      <div class="invalid-feedback">Debe tener entre 8 y 20 caracteres e incluir mayúscula, minúscula, número y símbolo.</div>
+    }
+  </div>
+
+  <h2 class="col-12 mt-4">Preferencias de formación</h2>
+
+  <div class="col-md-6">
+    <label for="cursoInteres" class="form-label">Curso de interés <span class="text-danger">*</span></label>
+    <select
+      id="cursoInteres"
+      formControlName="cursoInteres"
+      class="form-select"
+      [class.is-invalid]="isInvalidField('cursoInteres')"
+      required
+    >
+      <option value="" disabled>Selecciona un curso</option>
+      <option value="desarrollo-web">Desarrollo de aplicaciones web</option>
+      <option value="desarrollo-multiplataforma">Desarrollo de aplicaciones multiplataforma</option>
+      <option value="sistemas-redes">Sistemas y redes</option>
+      <option value="otro">Otro</option>
+    </select>
+    @if (isInvalidField('cursoInteres')) {
+      <div class="invalid-feedback">Selecciona un curso de interés.</div>
+    }
+  </div>
+
+  <div class="col-md-6">
+    <label for="horasDisponibles" class="form-label">Horas disponibles por semana <span class="text-danger">*</span></label>
+    <input
+      id="horasDisponibles"
+      type="number"
+      formControlName="horasDisponibles"
+      class="form-control"
+      [class.is-invalid]="isInvalidField('horasDisponibles')"
+      min="2"
+      max="40"
+      required
+    />
+    @if (isInvalidField('horasDisponibles')) {
+      <div class="invalid-feedback">Indica entre 2 y 40 horas semanales.</div>
+    }
+  </div>
+
+  <div class="col-md-6">
+    <label for="codPostal" class="form-label">Código postal <span class="text-danger">*</span></label>
+    <input
+      id="codPostal"
+      type="text"
+      inputmode="numeric"
+      formControlName="codPostal"
+      class="form-control"
+      [class.is-invalid]="isInvalidField('codPostal')"
+      autocomplete="postal-code"
+      maxlength="5"
+      required
+    />
+    @if (isInvalidField('codPostal')) {
+      <div class="invalid-feedback">Introduce un código postal español válido de 5 cifras.</div>
+    }
+  </div>
+
+  <div class="col-12">
+    <button type="submit" class="btn btn-primary">Crear cuenta</button>
+    <span class="ms-2 text-body-secondary">Los campos marcados con * son obligatorios.</span>
+  </div>
 </form>
