@@ -1,0 +1,68 @@
+<form [formGroup]="registerForm" class="row">
+    <h2>Datos Personales</h2>
+    <div class="col-auto">
+        <label for="first-name" class="form-label">First Name <span class="text-danger">*</span> </label>
+        <input id="first-name" type="text" formControlName="nombre" class="form-control"
+            [class.is-invalid]="isInvalidField('nombre')" />
+        @if(isInvalidField('nombre')) {
+        <div class="invalid-feedback">
+            Min 3 characters
+        </div>
+        }
+    </div>
+    <div class="col-auto">
+        <label for="last-name" class="form-label">Last Name <span class="text-danger">*</span></label>
+        <input id="last-name" type="text" formControlName="apellidos" class="form-control"
+            [class.is-invalid]="isInvalidField('apellidos')" />
+        @if(isInvalidField('apellidos')) {
+        <div class="invalid-feedback">
+            Please choose a last name.
+        </div>
+        }
+    </div>
+    <div class="col-auto">
+        <label for="dni-nie" class="form-label">DNI/NIE <span class="text-danger">*</span></label>
+        <input id="dni-nie" type="text" formControlName="dniNIE" class="form-control"
+            [class.is-invalid]="isInvalidField('dniNIE')" />
+        @if(isInvalidField('dniNIE')) {
+        <div class="invalid-feedback">
+            Please enter a valid DNI/NIE.
+        </div>
+        }
+    </div>
+    <div class="col-auto">
+        <label for="telefono" class="form-label">Telefono<span class="text-danger">*</span></label>
+        <input id="telefono" type="text" formControlName="telefono" class="form-control"
+            [class.is-invalid]="isInvalidField('telefono')" />
+        @if(isInvalidField('telefono')) {
+        <div class="invalid-feedback">
+            Please enter a valid phone number.
+        </div>
+        }
+    </div>
+    <h2>Datos de la cuenta</h2>
+    <div class="col-auto">
+        <label for="nombreU" class="form-label">Nombre de usuario <span class="text-danger">*</span></label>
+        <input id="nombreU" type="text" formControlName="nombreUsuario" class="form-control"
+            [class.is-invalid]="isInvalidField('nombreUsuario')" />
+        @if(isInvalidField('nombreUsuario')) {
+        <div class="invalid-feedback">
+            Please enter a valid username.
+        </div>
+        }
+    </div>
+    <div class="col-auto">
+        <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
+        <input id="email" type="email" formControlName="email" class="form-control"
+            [class.is-invalid]="isInvalidField('email')" />
+        @if(isInvalidField('email')) {
+        <div class="invalid-feedback">
+            Please enter a valid email address.
+        </div>
+        }
+    </div>
+    
+    <div class="col-auto">
+        <button type="submit" class="btn btn-primary mb-3">Confirm identity</button>
+    </div>
+</form>

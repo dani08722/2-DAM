@@ -12,20 +12,24 @@ from copy import deepcopy
 import random
 opcion=int(100000)
 
-notaMedia=random.uniform(1.0,10.0)
-estudiante={"30315692J":notaMedia}
+estudiante={"30315692J":round(random.uniform(1.0,10.0),2),
+            "30315692A":round(random.uniform(1.0,10.0),2),
+            "30315692B":round(random.uniform(1.0,10.0),2)}
 
 while opcion!=int(0):
-    opcion=int(input("[1] Para mostrar los datos\n[2] Para modificar la nota\n[3] Para añadir un nuevo estudiante\n"
+    opcion=int(input("[0] Para salir\n[1] Para mostrar los datos\n[2] Para modificar la nota\n[3] Para añadir un nuevo estudiante\n"
     "[4] Para crear un nuevo diccionario con nota media mayor a:\nIntroduce la opcion: "))
     match opcion:
-        case int(0):
-            print("Saliendo del programa")
+        case 0:
+            print("Saliendo del programa...")
         
-        case int(1):
+        case 1:
             print(estudiante)
+            print("DATOS DE LOS ESTUDIANTES")
+            for dni,media in estudiante.items():
+                print("DNI: ",dni," MEDIA: ",media)
 
-        case int(2):
+        case 2:
             valor=str(input("Introduce el dni del estudiante: "))
             if valor in estudiante:
 
@@ -34,7 +38,7 @@ while opcion!=int(0):
             else:   
                 print("No hay ningun estudiante con ese dni")
 
-        case int(3):
+        case 3:
             valor=str(input("Introduce el dni del nuevo estudiante: "))
             if valor not in estudiante:
                 notaMedia=float(input("Introduce la nota media: "))
@@ -42,7 +46,7 @@ while opcion!=int(0):
             else:
                 print("Ya hay un estudiante registrado con ese dni")
 
-        case int(4):
+        case 4:
             copiaEstudiantes=estudiante.copy()
             notaCorte=float(input("Introduce la nota de corte: "))
             copiaEstudiantes={dni:media for dni,media in copiaEstudiantes.items() if media>=notaCorte}

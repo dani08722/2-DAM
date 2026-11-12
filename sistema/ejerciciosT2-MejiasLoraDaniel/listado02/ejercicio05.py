@@ -10,7 +10,7 @@ opcion=int(1999999)
 cantidadNumeros=int(input("Introduce la cantidad de números que desea añadir: "))
 
 for i in range(cantidadNumeros):
-    numero=int(input(""))
+    numero=int(input("Introduce el número: "))
     numeros.add(numero)
 
 while opcion!=0:
