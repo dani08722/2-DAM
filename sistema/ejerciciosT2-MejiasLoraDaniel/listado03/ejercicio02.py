@@ -16,7 +16,9 @@ diccionario={
 
 opcion=int(1000000)
 while opcion!=0:
-    opcion=int(input("[0] Salir\n[1] Agregar nueva palabra\n[2] Ver diccionario completo\n[3] Buscar una palabra\n[4] Modificar significado de una palabra\n[5] Añadir dos palabras favoritas\n[6] Borrar una palabra\n[7] Ordenar diccionario alfabéticamente\nSeleccione una opción: "))
+    opcion=int(input("[0] Salir\n[1] Agregar nueva palabra\n[2] Ver diccionario completo\n[3] Buscar una palabra\n"
+    "[4] Modificar significado de una palabra\n[5] Añadir dos palabras favoritas\n"
+    "[6] Borrar una palabra\n[7] Ordenar diccionario alfabéticamente\nSeleccione una opción: "))
 
     match opcion:
         case 0:
