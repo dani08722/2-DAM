@@ -1,0 +1,120 @@
+<div class="movies-page">
+  <header class="site-header">
+    <a class="brand" routerLink="/popular" aria-label="Popular Movies, inicio">
+      <span class="brand-mark" aria-hidden="true">PM</span>
+      <span class="brand-name">pantalla<span>popular</span></span>
+    </a>
+    <nav class="main-nav" aria-label="Navegación principal">
+      <a routerLink="/popular" routerLinkActive="active" ariaCurrentWhenActive="page">Descubrir</a>
+    </nav>
+    <div class="header-note"><span class="live-dot"></span> Cine para descubrir</div>
+  </header>
+
+  <main>
+    <section class="featured" [style.background-image]="backdropStyle(featuredMovie?.backdrop_path ?? null)">
+      <div class="featured-shade"></div>
+      @if (featuredMovie; as featured) {
+        <div class="featured-content">
+          <p class="eyebrow"><span class="sparkle">✦</span> La más popular ahora</p>
+          <h1>{{ featured.title }}</h1>
+          <div class="featured-meta">
+            <span class="featured-rating"><span aria-hidden="true">★</span> {{ rating(featured.vote_average) }}</span>
+            <span>{{ year(featured.release_date) }}</span>
+            <span class="meta-separator"></span>
+            <span>{{ featured.original_language.toUpperCase() }}</span>
+          </div>
+          <p class="featured-overview">{{ featured.overview || 'Descubre más sobre esta película en TMDB.' }}</p>
+          <div class="featured-actions">
+            <a class="primary-button" href="https://www.themoviedb.org/movie/{{ featured.id }}"
+              target="_blank" rel="noopener noreferrer">Ver película <span aria-hidden="true">↗</span></a>
+            <a class="text-button" href="#peliculas">Explorar populares <span aria-hidden="true">↓</span></a>
+          </div>
+        </div>
+      } @else if (loading) {
+        <div class="featured-content loading-feature" role="status">Cargando las películas más populares…</div>
+      } @else if (errorMessage) {
+        <div class="featured-content loading-feature">No se ha podido cargar la película destacada.</div>
+      } @else {
+        <div class="featured-content loading-feature">Todavía no hay películas disponibles.</div>
+      }
+    </section>
+
+    <section class="catalog" id="peliculas" aria-labelledby="catalog-title">
+      <div class="catalog-heading">
+        <div>
+          <p class="eyebrow">SELECCIÓN TMDB</p>
+          <h2 id="catalog-title">Populares ahora</h2>
+          <p class="catalog-subtitle">Las historias que están viendo todos.</p>
+        </div>
+        @if (!loading && !errorMessage && movies.length > 0) {
+          <span class="result-count">{{ totalResults }} películas</span>
+        }
+      </div>
+
+      @if (loading) {
+        <div class="movie-grid" aria-label="Cargando películas" aria-busy="true">
+          @for (placeholder of [1, 2, 3, 4, 5, 6, 7, 8]; track placeholder) {
+            <div class="movie-skeleton">
+              <div class="poster-skeleton"></div>
+              <div class="line-skeleton"></div>
+              <div class="short-line-skeleton"></div>
+            </div>
+          }
+        </div>
+      } @else if (errorMessage) {
+        <div class="state-card" role="alert">
+          <span class="state-icon" aria-hidden="true">!</span>
+          <h3>No se pudieron cargar las películas</h3>
+          <p>{{ errorMessage }}</p>
+          <button class="primary-button" type="button" (click)="loadPopularMovies(currentPage)">Reintentar</button>
+        </div>
+      } @else if (movies.length === 0) {
+        <div class="state-card">
+          <span class="state-icon" aria-hidden="true">◌</span>
+          <h3>No hay películas para mostrar</h3>
+          <p>Vuelve a intentarlo dentro de un momento.</p>
+        </div>
+      } @else {
+        <div class="movie-grid">
+          @for (movie of supportingMovies; track movie.id) {
+            <article class="movie-card">
+              <div class="poster-frame">
+                @if (movie.poster_path) {
+                  <img [src]="posterUrl(movie.poster_path)" [alt]="'Póster de ' + movie.title" loading="lazy">
+                } @else {
+                  <div class="poster-placeholder" aria-label="Póster no disponible">
+                    <span aria-hidden="true">▧</span><small>Imagen no disponible</small>
+                  </div>
+                }
+                <span class="rating-badge"><span aria-hidden="true">★</span> {{ rating(movie.vote_average) }}</span>
+              </div>
+              <div class="movie-info">
+                <h3 [title]="movie.title">{{ movie.title }}</h3>
+                <div class="movie-meta">
+                  <span>{{ year(movie.release_date) }}</span><span class="meta-dot"></span>
+                  <span>{{ movie.original_language.toUpperCase() }}</span>
+                </div>
+              </div>
+            </article>
+          }
+        </div>
+        @if (totalPages > 1) {
+          <nav class="pagination" aria-label="Páginas de películas populares">
+            <button class="page-button" type="button" [disabled]="currentPage <= 1"
+              (click)="loadPopularMovies(currentPage - 1)"><span aria-hidden="true">←</span> Anterior</button>
+            <span class="page-label">Página <strong>{{ currentPage }}</strong> de {{ totalPages }}</span>
+            <button class="page-button" type="button" [disabled]="currentPage >= totalPages"
+              (click)="loadPopularMovies(currentPage + 1)">Siguiente <span aria-hidden="true">→</span></button>
+          </nav>
+        }
+      }
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a class="footer-brand" href="https://www.themoviedb.org/" target="_blank" rel="noopener noreferrer">TMDB</a>
+    <p>Este producto utiliza la API de TMDB, pero no está respaldado ni certificado por TMDB.</p>
+    <span>Datos e imágenes proporcionados por The Movie Database.</span>
+  </footer>
+</div>
+

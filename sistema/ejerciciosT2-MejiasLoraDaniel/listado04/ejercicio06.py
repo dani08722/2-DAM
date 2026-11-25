@@ -15,7 +15,10 @@ f.write("Lorem Ipsum is simply dummy text of the printing and typesetting indust
 "recently with desktop publishing software like Aldus PageMaker and Microsoft\n "
 "Word including versions of Lorem Ipsum.")
 
+f.close()
 
+import random
+SIGNOS = ".,;:!?\"'()"
 opcion = int(10000)
 
 while opcion != 0:
@@ -29,27 +32,78 @@ while opcion != 0:
     opcion = int(input("Elige una opción: "))
     match opcion:
         case 0: 
-            print("Saliendo del programa...")
+            print("\n\nSaliendo del programa...\n\n")
         
         case 1:
-            f = open("ejerciciosT2-MejiasLoraDaniel/listado04/ficheros/entrada.txt", "r")
-            palabra_mayor = "a"
-            for linea in f:
-                for palabra in linea.split():
-                    if len(palabra)>len(palabra_mayor):
-                        palabra_mayor=palabra
+            palabra_mayor = ""
+            with open("ejerciciosT2-MejiasLoraDaniel/listado04/ficheros/entrada.txt", "r") as f:
+                for linea in f:
+                    for palabra in linea.split():
+                        palabra_limpia = palabra.strip(SIGNOS)
+                        if len(palabra_limpia) > len(palabra_mayor):
+                            palabra_mayor = palabra
 
-            print(palabra_mayor)
+            print(f"\n\nLa palabra más larga es: '{palabra_mayor}' ({len(palabra_mayor)} letras).\n\n")
 
         case 2:
-            f = open("ejerciciosT2-MejiasLoraDaniel/listado04/ficheros/entrada.txt", "r")
-            palabra_contar="dummy"
+            palabra_contar=str(input("Introduzca la palabra a contar: ").strip().lower())
             contador=int(0)
-            for linea in f:
-                for palabra in linea.split():
-                    if palabra == palabra_contar:
-                        contador+=1
-            print(f"La palabra {palabra_contar} a aparecido {contador} veces en el texto")
 
+            with open("ejerciciosT2-MejiasLoraDaniel/listado04/ficheros/entrada.txt", "r") as f:
+                for linea in f:
+                    for palabra in linea.split():
+                        palabra_limpia = palabra.strip(SIGNOS).lower()
+                        if palabra_limpia == palabra_contar:
+                            contador+=1
+
+            print(f"\n\nLa palabra {palabra_contar} ha aparecido {contador} veces en el texto\n\n")
+
+
+        case 3:
+
+            #minimo = 1
+            #contador=0
+            #with open("ejerciciosT2-MejiasLoraDaniel/listado04/ficheros/entrada.txt", "r") as f:
+            
+            #    for linea in f:
+            #        contador+=1
+            #    maximo = contador
+            # linea_aleatoria = random.randint(minimo,maximo)
+
+            #contador=1
+            #f = open("ejerciciosT2-MejiasLoraDaniel/listado04/ficheros/entrada.txt", "r")
+            #for linea in f:
+            #    if linea_aleatoria==contador:
+            #        print(linea)
+            #    contador+=1
+            with open("ejerciciosT2-MejiasLoraDaniel/listado04/ficheros/entrada.txt", "r") as f:
+                lineas = f.readlines()
+
+                if lineas:
+                    linea_aleatoria = random.choice(lineas).strip()
+                    print(f"\n\nLínea aleatoria: {linea_aleatoria}\n\n")
+                else:
+                    print("\n\nEl fichero está vacío\n\n")
+
+        case 4:
+            
+            total_palabras=0
+            with open("ejerciciosT2-MejiasLoraDaniel/listado04/ficheros/entrada.txt", "r") as f:
+                for linea in f:
+                    for palabra in linea.split():
+                        total_palabras+=1
+
+            print(f"\n\nEn el fichero hay un total de: {total_palabras} palabras\n\n")
+
+        case 5:
+            total_lineas=0
+
+            with open("ejerciciosT2-MejiasLoraDaniel/listado04/ficheros/entrada.txt", "r") as f:
+
+                for linea in f:
+                    total_lineas+=1
+
+            print(f"\n\nEl fichero tiene el total de: {total_lineas} lineas")
+            
 
     

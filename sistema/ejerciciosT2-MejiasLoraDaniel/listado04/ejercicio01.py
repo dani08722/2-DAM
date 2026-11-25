@@ -10,6 +10,8 @@ f.write("Lorem Ipsum is simply dummy text of the printing and typesetting indust
 "recently with desktop publishing software like Aldus PageMaker and Microsoft\n "
 "Word including versions of Lorem Ipsum.")
 
+f.close()
+
 contador=0
 f = open("ejerciciosT2-MejiasLoraDaniel/listado04/ficheros/entrada.txt", "r")
 
